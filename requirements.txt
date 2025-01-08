@@ -1,0 +1,11 @@
+streamlit
+transformers
+torch
+beautifulsoup4
+requests
+html5lib
+reportlab
+
+#update
+python-docx
+PyPDF2
