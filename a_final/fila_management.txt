@@ -1,0 +1,19 @@
+a_final/
+│── static/
+│   ├── pdf_styles.css
+│   ├── word_styles.css
+│── templates/
+│   ├── ado_index.html
+│   ├── pdf_index.html
+│   ├── pdf_result.html
+│   ├── word_index.html
+│   ├── word_result.html
+│   ├── url_index.html
+│   ├── vdo_index.html
+│   ├── vdo_result.html
+│
+│── ado.py  (Audio summarization functions)
+│── pdf.py  (PDF summarization functions)
+│── url.py  (URL summarization functions)
+│── vdo_summ_ai.py  (Video summarization functions)
+│── word.py  (Word summarization functions)

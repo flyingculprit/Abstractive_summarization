@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Document Summarizer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body class="bg-dark text-light">
+
+    <div class="container mt-5">
+        <h2 class="text-center">Word Document Summarizer</h2>
+
+        <!-- Upload Form -->
+        <form action="/word" method="post" enctype="multipart/form-data" class="mt-4">
+            <div class="mb-3">
+                <label for="file" class="form-label">Upload a Word Document</label>
+                <input type="file" class="form-control" name="file" accept=".docx" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload & Summarize</button>
+        </form>
+
+        {% if original_text %}
+        <hr class="my-5">
+
+        <!-- Results Section -->
+        <div class="mt-4">
+            <h4>Original Content</h4>
+            <pre class="bg-light text-dark p-3">{{ original_text }}</pre>
+            <p><strong>Word Count:</strong> {{ original_word_count }}</p>
+        </div>
+
+        <div class="mt-4">
+            <h4>Summarized Content</h4>
+            <pre class="bg-light text-dark p-3">{{ summary_text }}</pre>
+            <p><strong>Summarized Word Count:</strong> {{ summarized_word_count }}</p>
+            <h5>Summary Ratio: {{ summary_ratio }}%</h5>
+        </div>
+
+        <div class="mt-4">
+            <a href="/download/{{ summary_file }}" class="btn btn-success">📥 Download Summary</a>
+            <a href="/word" class="btn btn-secondary">🔄 Upload Another Document</a>
+        </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

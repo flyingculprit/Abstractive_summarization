@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Summary Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='word_styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Original Content</h2>
+        <div class="content-box">
+            <pre>{{ original_text }}</pre>
+            <p><strong>Word Count:</strong> {{ original_word_count }}</p>
+        </div>
+
+        <hr>
+
+        <h2>Summarized Content</h2>
+        <div class="content-box">
+            <pre>{{ summary_text }}</pre>
+            <p><strong>Summarized Word Count:</strong> {{ summarized_word_count }}</p>
+        </div>
+
+        <h3>Summary Ratio: {{ summary_ratio }}%</h3>
+
+        <a href="/download/{{ summary_file }}" class="download-btn">📥 Download Summary as Word File</a>
+        <br><br>
+        <a href="/" class="back-btn">🔄 Upload Another Document</a>
+    </div>
+</body>
+</html>

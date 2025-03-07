@@ -5,7 +5,21 @@ beautifulsoup4
 requests
 html5lib
 reportlab
-
+#-----------
+moviepy 
+openai 
+google-api-python-client 
 #update
 python-docx
+
 PyPDF2
+
+python -m venv summarization_env
+pip install moviepy openai youtube-transcript-api whisper transformers streamlit requests beautifulsoup4 reportlab
+pip install moviepy==1.0.3 numpy>=1.18.1 imageio>=2.5.0 decorator>=4.3.0 tqdm>=4.0.0 Pillow>=7.0.0 scipy>=1.3.0 pydub>=0.23.0 audiofile>=0.0.0 opencv-python>=4.5
+pip install torch torchvision torchaudio
+pip install yt-dlp openai streamlit whisper transformers
+
+pip install moviepy pydub openai google-generativeai faster-whisper
+
+

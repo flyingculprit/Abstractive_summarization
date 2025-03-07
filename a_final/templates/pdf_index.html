@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PDF Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pdf_styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload a PDF to Summarize</h2>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="application/pdf" required>
+            <button type="submit">Upload & Summarize</button>
+        </form>
+    </div>
+</body>
+</html>
+<!-- backup  -->

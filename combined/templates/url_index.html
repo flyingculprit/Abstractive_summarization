@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Summarizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            resize: none;
+            height: 200px;
+        }
+        .btn-custom {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .btn-download {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-download:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">📄 Article Summarizer</h2>
+        <form method="post" class="mt-3">
+            <div class="input-group">
+                <input type="text" class="form-control" name="url" placeholder="Enter Article URL" required>
+                <button class="btn btn-primary" type="submit">Extract Text</button>
+            </div>
+        </form>
+
+        {% if extracted_text %}
+        <div class="mt-4">
+            <h4>Extracted Text</h4>
+            <p><strong>Total Words:</strong> {{ word_count }}</p>
+            <p><strong>Total Characters:</strong> {{ char_count }}</p>
+            <textarea class="form-control" readonly>{{ extracted_text }}</textarea>
+        </div>
+
+        <form method="post" class="mt-3">
+            <input type="hidden" name="url" value="{{ url }}">
+            <button type="submit" name="summarize" class="btn btn-success btn-custom">Summarize</button>
+        </form>
+
+        <div class="mt-3">
+            <h5>Download Extracted Text</h5>
+            <a href="/download/pdf/extracted?text={{ extracted_text }}" class="btn btn-download btn-custom">Download as PDF</a>
+            <a href="/download/docx/extracted?text={{ extracted_text }}" class="btn btn-download btn-custom">Download as Word</a>
+        </div>
+        {% endif %}
+
+        {% if summary %}
+        <div class="mt-4">
+            <h4>Summary</h4>
+            <p>{{ summary }}</p>
+            <p><strong>Compression Ratio:</strong> {{ compression_ratio }}%</p>
+        </div>
+
+        <div class="mt-3">
+            <h5>Download Summary</h5>
+            <a href="/download/pdf/summary?text={{ summary }}" class="btn btn-download btn-custom">Download as PDF</a>
+            <a href="/download/docx/summary?text={{ summary }}" class="btn btn-download btn-custom">Download as Word</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
